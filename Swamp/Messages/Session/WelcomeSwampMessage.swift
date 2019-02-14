@@ -11,10 +11,10 @@ import Foundation
 /// [WELCOME, sessionId|number, details|Dict]
 class WelcomeSwampMessage: SwampMessage {
     
-    let sessionId: Int
+    let sessionId: Int64
     let details: [String: AnyObject]
     
-    init(sessionId: Int, details: [String: AnyObject]) {
+    init(sessionId: Int64, details: [String: AnyObject]) {
         self.sessionId = sessionId
         self.details = details
     }
@@ -22,7 +22,7 @@ class WelcomeSwampMessage: SwampMessage {
     // MARK: SwampMessage protocol
     
     required init(payload: [Any]) {
-        self.sessionId = payload[0] as! Int
+        self.sessionId = payload[0] as! Int64
         self.details = payload[1] as! [String: AnyObject]
     }
     

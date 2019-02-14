@@ -11,10 +11,10 @@ import Foundation
 /// [UNSUBSCRIBE, requestId|number, subscription|number]
 class UnsubscribeSwampMessage: SwampMessage {
     
-    let requestId: Int
-    let subscription: Int
+    let requestId: Int64
+    let subscription: Int64
     
-    init(requestId: Int, subscription: Int) {
+    init(requestId: Int64, subscription: Int64) {
         self.requestId = requestId
         self.subscription = subscription
     }
@@ -22,8 +22,8 @@ class UnsubscribeSwampMessage: SwampMessage {
     // MARK: SwampMessage protocol
     
     required init(payload: [Any]) {
-        self.requestId = payload[0] as! Int
-        self.subscription = payload[1] as! Int
+        self.requestId = payload[0] as! Int64
+        self.subscription = payload[1] as! Int64
     }
     
     func marshal() -> [Any] {

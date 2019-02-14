@@ -11,18 +11,18 @@ import Foundation
 /// [PUBLISHED, requestId|number, options|dict, topic|String, args|list?, kwargs|dict?]
 class PublishedSwampMessage: SwampMessage {
     
-    let requestId: Int
-    let publication: Int
+    let requestId: Int64
+    let publication: Int64
     
-    init(requestId: Int, publication: Int) {
+    init(requestId: Int64, publication: Int64) {
         self.requestId = requestId
         self.publication = publication
     }
     
     // MARK: SwampMessage protocol
     required init(payload: [Any]) {
-        self.requestId = payload[0] as! Int
-        self.publication = payload[1] as! Int
+        self.requestId = payload[0] as! Int64
+        self.publication = payload[1] as! Int64
     }
     
     func marshal() -> [Any] {

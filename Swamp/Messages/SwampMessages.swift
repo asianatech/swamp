@@ -6,7 +6,7 @@
 //  Copyright © 2016 Yossi Abraham. All rights reserved.
 //
 
-enum SwampMessages: Int {
+enum SwampMessages: Int64 {
 
     // MARK: Basic profile messages
 
@@ -81,7 +81,7 @@ enum SwampMessages: Int {
 
 
     static func createMessage(_ payload: [Any]) -> SwampMessage? {
-        if let messageType = SwampMessages(rawValue: payload[0] as! Int) {
+        if let messageType = SwampMessages(rawValue: payload[0] as! Int64) {
             if let messageFactory = mapping1[messageType] {
                 return messageFactory(Array(payload[1..<payload.count]))
             }

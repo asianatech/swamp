@@ -11,16 +11,16 @@ import Foundation
 /// [UNREGISTERED, requestId|number]
 class UnregisteredSwampMessage: SwampMessage {
     
-    let requestId: Int
+    let requestId: Int64
     
-    init(requestId: Int) {
+    init(requestId: Int64) {
         self.requestId = requestId
     }
     
     // MARK: SwampMessage protocol
     
     required init(payload: [Any]) {
-        self.requestId = payload[0] as! Int
+        self.requestId = payload[0] as! Int64
     }
     
     func marshal() -> [Any] {

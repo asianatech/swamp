@@ -11,14 +11,14 @@ import Foundation
 /// [ERROR, requestType|number, requestId|number, details|dict, error|string, args|array?, kwargs|dict?]
 class ErrorSwampMessage: SwampMessage {
     let requestType: SwampMessages
-    let requestId: Int
+    let requestId: Int64
     let details: [String: Any]
     let error: String
     
     let args: [Any]?
     let kwargs: [String: Any]?
     
-    init(requestType: SwampMessages, requestId: Int, details: [String: Any], error: String, args: [Any]?=nil, kwargs: [String: Any]?=nil) {
+    init(requestType: SwampMessages, requestId: Int64, details: [String: Any], error: String, args: [Any]?=nil, kwargs: [String: Any]?=nil) {
         self.requestType = requestType
         self.requestId = requestId
         self.details = details
@@ -30,8 +30,8 @@ class ErrorSwampMessage: SwampMessage {
     // MARK: SwampMessage protocol
     
     required init(payload: [Any]) {
-        self.requestType = SwampMessages(rawValue: payload[0] as! Int)!
-        self.requestId = payload[1] as! Int
+        self.requestType = SwampMessages(rawValue: payload[0] as! Int64)!
+        self.requestId = payload[1] as! Int64
         self.details = payload[2] as! [String: Any]
         self.error = payload[3] as! String
         
